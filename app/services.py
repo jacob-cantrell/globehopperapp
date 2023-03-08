@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 import conn
 
 # Adds a new Country record to the Country table
-def create_country(data):
+def create_country_service(data):
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -29,7 +29,7 @@ def create_country(data):
     conn.myconn.close()
 
 # Updates current record in Country table
-def update_country(country_id, data):
+def update_country_service(country_id, data):
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -54,7 +54,7 @@ def update_country(country_id, data):
     conn.myconn.close()
 
 # Deletes record from Country table based on id
-def delete_country(country_id):
+def delete_country_service(country_id):
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -69,7 +69,7 @@ def delete_country(country_id):
     conn.myconn.close()
 
 # Gets City record where City is capital of specified Country
-def get_capital_from_country(country_name):
+def get_capital_from_country_service(country_name):
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -91,7 +91,7 @@ def get_capital_from_country(country_name):
     return results
 
 # Gets all Country records where Continent = continent param
-def get_countries_by_continent(continent):
+def get_countries_by_continent_service(continent):
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -110,7 +110,7 @@ def get_countries_by_continent(continent):
     return results
 
 # Gets all records from Country table using SQL
-def all_countries():
+def all_countries_service():
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor() 
@@ -126,7 +126,7 @@ def all_countries():
     return results
 
 # Adds a new City record to City table
-def create_city(data):
+def create_city_service(data):
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -154,7 +154,7 @@ def create_city(data):
     conn.myconn.close()
 
 # Updates a current City
-def update_city(city_id, data):
+def update_city_service(city_id, data):
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -182,7 +182,7 @@ def update_city(city_id, data):
     conn.myconn.close()
 
 # Deletes current City record based on CityId
-def delete_city(city_id):
+def delete_city_service(city_id):
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -198,7 +198,7 @@ def delete_city(city_id):
 
 
 # Gets all records from City
-def all_cities():
+def all_cities_service():
     # Open Connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()

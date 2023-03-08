@@ -4,29 +4,29 @@ from flask import Flask, request, jsonify
 import services
 
 # Function to create a country
-def create_country(data):
-    services.create_country(data)
+def create_country_view(data):
+    services.create_country_service(data)
     return jsonify({
         "message": 'Data inserted successfully!'
     })
 
 # Function to update a current country in Country table
-def update_country(country_id, data):
-    services.update_country(country_id, data)
+def update_country_view(country_id, data):
+    services.update_country_service(country_id, data)
     return jsonify({
         "message": 'Data with CountryId = ' + str(country_id) + ' successfully updated!'
     })
 
 # Function to delete a country from the Country table
-def delete_country(country_id):
-    services.delete_country(country_id)
+def delete_country_view(country_id):
+    services.delete_country_service(country_id)
     return jsonify({
         'message': 'Data with Country ID = ' + str(country_id) + ' successfully deleted!'
     })
 
 # Function to get City record where City is capital of country
-def get_capital_from_country(country_name):
-    results = services.get_capital_from_country(country_name)
+def get_capital_from_country_view(country_name):
+    results = services.get_capital_from_country_service(country_name)
 
     data = []
     for row in results:
@@ -43,8 +43,8 @@ def get_capital_from_country(country_name):
     return jsonify(data) 
 
 # Function to get countries by a continent
-def get_countries_by_continent(continent):
-    results = services.get_countries_by_continent(continent)
+def get_countries_by_continent_view(continent):
+    results = services.get_countries_by_continent_service(continent)
 
     data = []
     for row in results:
@@ -58,8 +58,8 @@ def get_countries_by_continent(continent):
     return jsonify(data) 
 
 # Function to get all countries and return as a JSON object  
-def get_countries():
-    results = services.all_countries()
+def get_countries_view():
+    results = services.all_countries_service()
 
     data = []
     for row in results:
