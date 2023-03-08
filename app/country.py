@@ -17,6 +17,13 @@ def update_country(id, data):
         "message": 'Data successfully updated!'
     })
 
+# Function to delete a country from the Country table
+def delete_country(id):
+    services.delete_country(id)
+    return jsonify({
+        'message': 'Data with Country ID = ' + str(id) + 'successfully deleted!'
+    })
+
 # Function to get all countries and return as a JSON object  
 def get_countries():
     results = services.all_countries()

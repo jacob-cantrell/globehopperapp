@@ -53,6 +53,21 @@ def update_country(id, data):
     mycursor.close()
     conn.myconn.close()
 
+# Deletes record from Country table based on id
+def delete_country(id):
+    # Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    # Execute SQL Query
+    mycursor.execute(
+        "DELETE FROM Country WHERE CountryId=" + str(id)
+    )
+
+    # Close connection
+    mycursor.close()
+    conn.myconn.close()
+
 # Gets all records from Country table using SQL
 def all_countries():
     # Open connection

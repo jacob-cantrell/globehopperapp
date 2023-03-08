@@ -18,6 +18,11 @@ def create_country():
 def update_country(id):
     return country.update_country(id, request.json)
 
+# Delete Country API
+@app.route('/countries/<int:id>', methods=['DELETE'])
+def delete_country(id):
+    return country.delete_country(id)
+
 # Read API - get all countries
 @app.route('/countries', methods=['GET'])
 def get_all_countries():
