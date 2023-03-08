@@ -68,6 +68,28 @@ def delete_country(id):
     mycursor.close()
     conn.myconn.close()
 
+# Gets City record where City is capital of specified Country
+def get_capital_from_country(country_name):
+    # Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    # Get values & query
+    query = "SELECT CityId, City.Name, City.CountryId, Capital, FirstLandmark, SecondLandmark, ThirdLandmark FROM City LEFT JOIN Country ON City.CountryId = Country.CountryId WHERE Capital=1 AND Country.Name=%s"
+
+    # Execute SQL Query
+    mycursor.execute(
+        query,
+        [country_name]
+    )
+    results = mycursor.fetchall()
+
+    # Close connection
+    mycursor.close()
+    conn.myconn.close()
+
+    return results
+
 # Gets all Country records where Continent = continent param
 def get_countries_by_continent(continent):
     # Open connection

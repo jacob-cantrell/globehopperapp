@@ -27,6 +27,11 @@ def delete_country(id):
 def get_countries_by_continent(continent):
     return country.get_countries_by_continent(continent)
 
+# Read API - get City record from Capital City of Country specified
+@app.route('/countries/<country_name>/1', methods=['GET'])
+def get_capital_from_country(country_name):
+    return country.get_capital_from_country(country_name)
+
 # Read API - get all countries
 @app.route('/countries', methods=['GET'])
 def get_all_countries():

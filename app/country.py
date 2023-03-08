@@ -24,6 +24,24 @@ def delete_country(id):
         'message': 'Data with Country ID = ' + str(id) + 'successfully deleted!'
     })
 
+# Function to get City record where City is capital of country
+def get_capital_from_country(country_name):
+    results = services.get_capital_from_country(country_name)
+
+    data = []
+    for row in results:
+        data.append({
+            "CityId": row[0],
+            "Name": row[1],
+            "CountryId": row[2],
+            "Capital": row[3],
+            "FirstLandmark": row[4],
+            "SecondLandmark": row[5],
+            "ThirdLandmark": row[6]
+        })
+
+    return jsonify(data) 
+
 # Function to get countries by a continent
 def get_countries_by_continent(continent):
     results = services.get_countries_by_continent(continent)
