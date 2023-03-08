@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 # Read API - get all countries
 @app.route('/countries', methods=['GET'])
-def getAllCountries():
-    return country.getCountries()
+def get_all_countries():
+    return country.get_countries()
 
 # Execute on the terminal
 if __name__ == '__main__':

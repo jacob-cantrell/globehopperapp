@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 import conn
 
 # Gets all records from Country table using SQL
-def allCountries():
+def all_countries():
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor() 
