@@ -37,6 +37,11 @@ def get_all_countries():
 def add_city():
     return city.add_city(request.json)
 
+# Update API - update (put) a current city record
+@app.route('/cities/<int:id>', methods=['PUT'])
+def update_city(id):
+    return city.update_city(id, request.json)
+
 # Read API - get all cities
 @app.route('/cities', methods=['GET'])
 def get_all_cities():

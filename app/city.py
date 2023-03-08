@@ -10,6 +10,13 @@ def add_city(data):
         "message": 'Data inserted successfully!'
     })
 
+# Function to update a city
+def update_city(id, data):
+    services.update_city(id, data)
+    return jsonify({
+        'message': 'Data updated successfully!'
+    })
+
 # Function to get all cities
 def get_all_cities():
     results = services.all_cities()

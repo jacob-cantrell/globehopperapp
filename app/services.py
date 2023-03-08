@@ -131,6 +131,34 @@ def create_city(data):
     mycursor.close()
     conn.myconn.close()
 
+# Updates a current City
+def update_city(id, data):
+    # Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    # Get query & values
+    query = "UPDATE City SET Name=%s, CountryId=%s, Capital=%s, FirstLandmark=%s, SecondLandmark=%s, ThirdLandmark=%s WHERE CityId=%s"
+    values = (
+        data['Name'],
+        data['CountryId'],
+        data['Capital'],
+        data['FirstLandmark'],
+        data['SecondLandmark'],
+        data['ThirdLandmark'],
+        id
+    )
+
+    # Execute SQL Query
+    mycursor.execute(
+        query,
+        values
+    )
+
+    # Close connection
+    mycursor.close()
+    conn.myconn.close()
+
 # Gets all records from City
 def all_cities():
     # Open Connection
