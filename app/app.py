@@ -42,6 +42,11 @@ def add_city():
 def update_city(id):
     return city.update_city(id, request.json)
 
+# Delete API - delete a current City record
+@app.route('/cities/<int:id>', methods=['DELETE'])
+def delete_city(id):
+    return city.delete_city(id)
+
 # Read API - get all cities
 @app.route('/cities', methods=['GET'])
 def get_all_cities():

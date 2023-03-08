@@ -159,6 +159,22 @@ def update_city(id, data):
     mycursor.close()
     conn.myconn.close()
 
+# Deletes current City record based on CityId
+def delete_city(city_id):
+    # Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    # Execute SQL Query
+    mycursor.execute(
+        "DELETE FROM City WHERE CityId=" + str(city_id)
+    )
+
+    # Close connection
+    mycursor.close()
+    conn.myconn.close()
+
+
 # Gets all records from City
 def all_cities():
     # Open Connection
