@@ -13,6 +13,11 @@ def create_country():
     data = request.json
     return country.create_country(data)
 
+# Update Country API
+@app.route('/countries/<int:id>', methods=['PUT'])
+def update_country(id):
+    return country.update_country(id, request.json)
+
 # Read API - get all countries
 @app.route('/countries', methods=['GET'])
 def get_all_countries():

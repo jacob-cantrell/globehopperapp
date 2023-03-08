@@ -23,7 +23,32 @@ def create_country(data):
         query,
         values
     )
-    
+
+    # Close connection
+    mycursor.close()
+    conn.myconn.close()
+
+# Updates current record in Country table
+def update_country(id, data):
+    # Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    # Get values
+    query = "UPDATE Country SET Name=%s, Population=%s, Continent=%s WHERE CountryId=%s"
+    values = (
+        data['Name'],
+        data['Population'],
+        data['Continent'],
+        id
+    )
+
+    # Execute SQL Query
+    mycursor.execute(
+        query,
+        values
+    )
+
     # Close connection
     mycursor.close()
     conn.myconn.close()

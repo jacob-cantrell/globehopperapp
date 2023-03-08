@@ -7,7 +7,14 @@ import services
 def create_country(data):
     services.create_country(data)
     return jsonify({
-        "message": 'Data inserted successfully'
+        "message": 'Data inserted successfully!'
+    })
+
+# Function to update a current country in Country table
+def update_country(id, data):
+    services.update_country(id, data)
+    return jsonify({
+        "message": 'Data successfully updated!'
     })
 
 # Function to get all countries and return as a JSON object  
