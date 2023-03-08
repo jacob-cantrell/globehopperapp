@@ -7,6 +7,12 @@ import country
 # Using Flask framework
 app = Flask(__name__)
 
+# Create API
+@app.route('/countries', methods=['POST'])
+def create_country():
+    data = request.json
+    return country.create_country(data)
+
 # Read API - get all countries
 @app.route('/countries', methods=['GET'])
 def get_all_countries():
