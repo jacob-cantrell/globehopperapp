@@ -11,16 +11,16 @@ def add_city(data):
     })
 
 # Function to update a city
-def update_city(id, data):
-    services.update_city(id, data)
+def update_city(city_id, data):
+    services.update_city(city_id, data)
     return jsonify({
-        'message': 'Data with CityId = ' + str(id) + ' updated successfully!'
+        'message': 'Data with CityId = ' + str(city_id) + ' updated successfully!'
     })
 
-def delete_city(id):
-    services.delete_city(id)
+def delete_city(city_id):
+    services.delete_city(city_id)
     return jsonify({
-        'message': 'Data with CityId = ' + str(id) + ' was successfully deleted!'
+        'message': 'Data with CityId = ' + str(city_id) + ' was successfully deleted!'
     })
 
 # Function to get all cities

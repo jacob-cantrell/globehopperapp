@@ -11,17 +11,17 @@ def create_country(data):
     })
 
 # Function to update a current country in Country table
-def update_country(id, data):
-    services.update_country(id, data)
+def update_country(country_id, data):
+    services.update_country(country_id, data)
     return jsonify({
-        "message": 'Data successfully updated!'
+        "message": 'Data with CountryId = ' + str(country_id) + ' successfully updated!'
     })
 
 # Function to delete a country from the Country table
-def delete_country(id):
-    services.delete_country(id)
+def delete_country(country_id):
+    services.delete_country(country_id)
     return jsonify({
-        'message': 'Data with Country ID = ' + str(id) + 'successfully deleted!'
+        'message': 'Data with Country ID = ' + str(country_id) + ' successfully deleted!'
     })
 
 # Function to get City record where City is capital of country

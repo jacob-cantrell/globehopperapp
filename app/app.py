@@ -14,14 +14,14 @@ def create_country():
     return country.create_country(data)
 
 # Update Country API
-@app.route('/countries/<int:id>', methods=['PUT'])
-def update_country(id):
-    return country.update_country(id, request.json)
+@app.route('/countries/<int:country_id>', methods=['PUT'])
+def update_country(country_id):
+    return country.update_country(country_id, request.json)
 
 # Delete Country API
-@app.route('/countries/<int:id>', methods=['DELETE'])
-def delete_country(id):
-    return country.delete_country(id)
+@app.route('/countries/<int:country_id>', methods=['DELETE'])
+def delete_country(country_id):
+    return country.delete_country(country_id)
 
 @app.route('/countries/<continent>', methods=['GET'])
 def get_countries_by_continent(continent):
@@ -43,14 +43,14 @@ def add_city():
     return city.add_city(request.json)
 
 # Update API - update (put) a current city record
-@app.route('/cities/<int:id>', methods=['PUT'])
-def update_city(id):
-    return city.update_city(id, request.json)
+@app.route('/cities/<int:city_id>', methods=['PUT'])
+def update_city(city_id):
+    return city.update_city(city_id, request.json)
 
 # Delete API - delete a current City record
-@app.route('/cities/<int:id>', methods=['DELETE'])
-def delete_city(id):
-    return city.delete_city(id)
+@app.route('/cities/<int:city_id>', methods=['DELETE'])
+def delete_city(city_id):
+    return city.delete_city(city_id)
 
 # Read API - get all cities
 @app.route('/cities', methods=['GET'])

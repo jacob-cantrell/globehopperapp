@@ -29,7 +29,7 @@ def create_country(data):
     conn.myconn.close()
 
 # Updates current record in Country table
-def update_country(id, data):
+def update_country(country_id, data):
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -40,7 +40,7 @@ def update_country(id, data):
         data['Name'],
         data['Population'],
         data['Continent'],
-        id
+        country_id
     )
 
     # Execute SQL Query
@@ -54,14 +54,14 @@ def update_country(id, data):
     conn.myconn.close()
 
 # Deletes record from Country table based on id
-def delete_country(id):
+def delete_country(country_id):
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
 
     # Execute SQL Query
     mycursor.execute(
-        "DELETE FROM Country WHERE CountryId=" + str(id)
+        "DELETE FROM Country WHERE CountryId=" + str(country_id)
     )
 
     # Close connection
@@ -154,7 +154,7 @@ def create_city(data):
     conn.myconn.close()
 
 # Updates a current City
-def update_city(id, data):
+def update_city(city_id, data):
     # Open connection
     conn.myconn._open_connection()
     mycursor = conn.myconn.cursor()
@@ -168,7 +168,7 @@ def update_city(id, data):
         data['FirstLandmark'],
         data['SecondLandmark'],
         data['ThirdLandmark'],
-        id
+        city_id
     )
 
     # Execute SQL Query
