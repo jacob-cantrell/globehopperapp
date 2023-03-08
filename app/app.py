@@ -2,7 +2,7 @@
 #    pip install Flask
 
 from flask import Flask, request, jsonify
-import country
+import country, city
 
 # Using Flask framework
 app = Flask(__name__)
@@ -31,6 +31,16 @@ def get_countries_by_continent(continent):
 @app.route('/countries', methods=['GET'])
 def get_all_countries():
     return country.get_countries()
+
+# Create API - add a city
+@app.route('/cities', methods=['POST'])
+def add_city():
+    return city.add_city(request.json)
+
+# Read API - get all cities
+@app.route('/cities', methods=['GET'])
+def get_all_cities():
+    return city.get_all_cities()
 
 # Execute on the terminal
 if __name__ == '__main__':

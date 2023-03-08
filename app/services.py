@@ -102,3 +102,49 @@ def all_countries():
     conn.myconn.close()
 
     return results
+
+# Adds a new City record to City table
+def create_city(data):
+    # Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    # Get values & query
+    query = "INSERT INTO City (CityId, Name, CountryId, Capital, FirstLandmark, SecondLandmark, ThirdLandmark) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    values = (
+        data['CityId'],
+        data['Name'],
+        data['CountryId'],
+        data['Capital'],
+        data['FirstLandmark'],
+        data['SecondLandmark'],
+        data['ThirdLandmark']
+    )
+
+    # Execute SQL Query
+    mycursor.execute(
+        query,
+        values
+    )
+
+    # Close connection
+    mycursor.close()
+    conn.myconn.close()
+
+# Gets all records from City
+def all_cities():
+    # Open Connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    # Execute SQL Query
+    mycursor.execute(
+        "SELECT * FROM City"
+    )
+    results = mycursor.fetchall()
+
+    # Close connection
+    mycursor.close()
+    conn.myconn.close()
+
+    return results
