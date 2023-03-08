@@ -10,8 +10,7 @@ app = Flask(__name__)
 # Create API
 @app.route('/countries', methods=['POST'])
 def create_country():
-    data = request.json
-    return country.create_country_view(data)
+    return country.create_country_view(request.json)
 
 # Update Country API
 @app.route('/countries/<int:country_id>', methods=['PUT'])
