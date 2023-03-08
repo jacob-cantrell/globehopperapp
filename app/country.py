@@ -24,6 +24,21 @@ def delete_country(id):
         'message': 'Data with Country ID = ' + str(id) + 'successfully deleted!'
     })
 
+# Function to get countries by a continent
+def get_countries_by_continent(continent):
+    results = services.get_countries_by_continent(continent)
+
+    data = []
+    for row in results:
+        data.append({
+            "CountryId": row[0],
+            "Name": row[1],
+            "Population": row[2],
+            "Continent": row[3]
+        })
+
+    return jsonify(data) 
+
 # Function to get all countries and return as a JSON object  
 def get_countries():
     results = services.all_countries()

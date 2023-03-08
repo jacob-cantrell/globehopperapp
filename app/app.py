@@ -23,6 +23,10 @@ def update_country(id):
 def delete_country(id):
     return country.delete_country(id)
 
+@app.route('/countries/<continent>', methods=['GET'])
+def get_countries_by_continent(continent):
+    return country.get_countries_by_continent(continent)
+
 # Read API - get all countries
 @app.route('/countries', methods=['GET'])
 def get_all_countries():

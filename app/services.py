@@ -68,6 +68,25 @@ def delete_country(id):
     mycursor.close()
     conn.myconn.close()
 
+# Gets all Country records where Continent = continent param
+def get_countries_by_continent(continent):
+    # Open connection
+    conn.myconn._open_connection()
+    mycursor = conn.myconn.cursor()
+
+    # Execute SQL Query
+    mycursor.execute(
+        "SELECT * FROM Country WHERE Continent=%s",
+        [continent]
+    )
+    results = mycursor.fetchall()
+
+    # Close connection
+    mycursor.close()
+    conn.myconn.close()
+
+    return results
+
 # Gets all records from Country table using SQL
 def all_countries():
     # Open connection
