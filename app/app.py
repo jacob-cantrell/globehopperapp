@@ -22,6 +22,7 @@ def update_country(country_id):
 def delete_country(country_id):
     return country.delete_country_view(country_id)
 
+# GET Countries by continent
 @app.route('/countries/<continent>', methods=['GET'])
 def get_countries_by_continent(continent):
     return country.get_countries_by_continent_view(continent)
